@@ -17,4 +17,6 @@ app.get("/product/:id", async (req, res) => {
   res.send(product);
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}/`);
+});
