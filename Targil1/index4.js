@@ -3,12 +3,13 @@ const app = express();
 const PORT = 5000;
 
 app.get("/", (req, res) => {
-  res.send("<h1>Hello World</h1>");
+  res.send(
+    `<h1>Use 'localhost:${PORT}/product/{productID}' in search bar</h1>`
+  );
 });
 
 app.get("/product/:id", async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   let all_products = await fetch("https://dummyjson.com/products").then((res) =>
     res.json()
   );
@@ -18,5 +19,5 @@ app.get("/product/:id", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
+  console.log(`Server running at http://localhost:${PORT}...`);
 });
